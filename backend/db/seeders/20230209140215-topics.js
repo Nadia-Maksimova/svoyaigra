@@ -3,16 +3,16 @@ module.exports = {
   async up(queryInterface) {
     const topicData = [
       {
-        title: 'Шуточные',
+        title: 'душные вопросы про мультики',
       },
       {
-        title: 'Фильмы',
+        title: 'е***** рот этого казино',
       },
       {
-        title: 'Для умных',
+        title: 'у меня нет личной жизни',
       },
       {
-        title: 'вопросы от вовы',
+        title: 'всем привет я вова',
       },
     ];
     const topics = topicData.map((topic) => ({
