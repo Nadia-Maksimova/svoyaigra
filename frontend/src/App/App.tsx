@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Login from '../Components/Login/Login';
 import MainGame from '../Components/MainGame/MainGame';
 import Navbar from '../Components/Navbar/Navbar';
 import Registration from '../Components/Registration/Registration';
 import './App.css';
-import { useDispatch } from 'react-redux';
 import * as api from '../api';
-import { TopicAction, TopicItem } from '../Components/MainGame/questionTypes';
 
 function App(): JSX.Element {
   const dispatch = useDispatch();
@@ -23,11 +22,14 @@ function App(): JSX.Element {
   // }, [])
 
   useEffect(() => {
-    api.loadTopics().then((data) => 
-    dispatch({
-      type: 'GET_TOPIC', payload: data
-    }))
-  }, [])
+    api.loadTopics().then((data) =>
+      dispatch({
+        type: 'GET_TOPIC',
+        payload: data,
+      }),
+    );
+  }, []);
+
   return (
     <>
       <Navbar />
