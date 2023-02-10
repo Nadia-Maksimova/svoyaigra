@@ -1,0 +1,25 @@
+.main {
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        flex-wrap: wrap;
+        margin:3em auto;
+    }
+&__topic {
+    width: 100%;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+&__title{
+width: 19%;
+
+}
+}
+.css-1ff8729-MuiInputBase-root-MuiFilledInput-root input {
+    border-bottom: 0 !important;
+}

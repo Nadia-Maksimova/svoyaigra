@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Login from '../Components/Auth/Login';
@@ -7,6 +8,7 @@ import Navbar from '../Components/Navbar/Navbar';
 import Registration from '../Components/Auth/Registration';
 import './App.css';
 import * as api from '../api';
+
 import { RootState } from '../store';
 
 function App(): JSX.Element {
@@ -20,6 +22,8 @@ function App(): JSX.Element {
         type: 'GET_TOPIC',
         payload: data,
       })
+
+      }),
     );
   }, []);
 

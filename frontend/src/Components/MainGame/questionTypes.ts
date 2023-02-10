@@ -18,7 +18,7 @@ export type QuestionItem = {
 export type TopicItem = {
   id: number;
   title: string;
-  questions: QuestionItem[];
+  Questions: QuestionItem[];
 };
 
 export type TopicAction = { type: 'GET_TOPIC'; payload: TopicItem[] };

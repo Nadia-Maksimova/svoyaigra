@@ -2,6 +2,7 @@ import { TopicItem } from './Components/MainGame/questionTypes';
 import { Res, User } from './Components/Auth/Types/type';
 
 export const loadTopics = async (): Promise<TopicItem[]> => {
+
   const res = await fetch('http://localhost:4000/api/topics');
   return res.json();
 };
@@ -44,4 +45,8 @@ export const logout = async (): Promise<Res> => {
     credentials: 'include',
   });
   return res.json();
+
+  const res = await fetch("http://localhost:4000/api/topics");
+  return await res.json();
+
 };

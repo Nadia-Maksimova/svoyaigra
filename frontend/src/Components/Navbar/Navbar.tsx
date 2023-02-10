@@ -35,6 +35,7 @@ export default function Navbar(): JSX.Element {
           </li>
         </ul>
         <ul className="left hide-on-med-and-down">
+
           <li>
             <a
               href="/"
@@ -44,6 +45,10 @@ export default function Navbar(): JSX.Element {
               Выход
             </a>
           </li>
+
+          <li><Link style={{ textDecoration: 'none', fontSize:'20px' }} to="/auth/registration">Регистрация</Link></li>
+          <li><Link style={{ textDecoration: 'none', fontSize:'20px' }} to="/auth/login">Вход</Link></li>
+
         </ul>
       </div>
     </nav>
