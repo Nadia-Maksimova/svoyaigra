@@ -1,15 +1,12 @@
-
 export type QuestionsState = {
-    topics: QuestionItem[];
-    error: Error | null;
-    
-}
+  topics: QuestionItem[];
+  error: Error | null;
+};
 
 export type TopicsState = {
-    topics: TopicItem[];
-    error: Error | null;
-    
-}
+  topics: TopicItem[];
+  error: Error | null;
+};
 
 export type QuestionItem = {
   id: number;
@@ -24,4 +21,4 @@ export type TopicItem = {
   Questions: QuestionItem[];
 };
 
-export type TopicAction = { type: "GET_TOPIC"; payload: TopicItem[] };
+export type TopicAction = { type: 'GET_TOPIC'; payload: TopicItem[] };
