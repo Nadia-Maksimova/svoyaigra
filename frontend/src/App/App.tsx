@@ -11,16 +11,6 @@ import * as api from '../api';
 function App(): JSX.Element {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   async function getThemes(): Promise<TopicItem[]> {
-  //     const response = await fetch('http://localhost:4000/api/topics', {mode:'no-cors'});
-  //     const allThemes = await response.json();
-  //     const action: TopicAction = { type: 'GET_TOPIC', payload: allThemes };
-  //     dispatch(action);
-  //   }
-  //   getThemes();
-  // }, [])
-
   useEffect(() => {
     api.loadTopics().then((data) =>
       dispatch({

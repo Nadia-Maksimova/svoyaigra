@@ -1,20 +1,18 @@
 import { Box, Button, TextField, Typography, Modal } from '@mui/material';
-import { borderBottom, padding } from '@mui/system';
 import React, { useState } from 'react';
 import { QuestionItem } from '../MainGame/questionTypes';
-import '../MainGame/MainGame.scss'
+import '../MainGame/MainGame.scss';
 
 type Props = {
   question: QuestionItem;
+  value: number;
+  setValue: ((el: number) => void);
 };
 
-function QuestionCard({ question }: Props): JSX.Element {
+function QuestionCard({ question, value, setValue }: Props): JSX.Element {
   const [open, setOpen] = useState(false);
   const [isAnswerRight, setIsAnswerRight] = useState<boolean>();
   const [userAnswer, setUserAnswer] = useState('');
-
-  //это надо заменить на score из БД
-  const [score, setScore] = useState(0);
 
   const handleOpen = (): void => setOpen(true);
   const handleClose = (): void => setOpen(false);
@@ -22,10 +20,10 @@ function QuestionCard({ question }: Props): JSX.Element {
   const sendAnswer = (q: QuestionItem): void => {
     if (userAnswer.toLowerCase() === q.answer.toLowerCase()) {
       setIsAnswerRight(true);
-      setScore((prevValue) => prevValue + question.score);
+      setValue(value + question.score);
     } else {
       setIsAnswerRight(false);
-      setScore((prevValue) => prevValue - question.score);
+      setValue(value - question.score);
     }
   };
 
@@ -96,7 +94,11 @@ function QuestionCard({ question }: Props): JSX.Element {
           <Button
             onClick={(): void => sendAnswer(question)}
             variant="contained"
-            sx={{backgroundColor: '#b2ebf2', color: 'black', fontWeight: 'bold'}}
+            sx={{
+              backgroundColor: '#b2ebf2',
+              color: 'black',
+              fontWeight: 'bold',
+            }}
           >
             Ответить
           </Button>
@@ -105,9 +107,9 @@ function QuestionCard({ question }: Props): JSX.Element {
           ) : (
             <div style={{ fontSize: '22px' }}>
               {!isAnswerRight ? (
-                <p>Неверно! Правильный ответ: {question.answer}</p>
+                <p>Ты не прав. Ответ: {question.answer}</p>
               ) : (
-                <p>Верно!</p>
+                <p>Молодец! Все верно!</p>
               )}
             </div>
           )}
